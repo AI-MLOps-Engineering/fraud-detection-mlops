@@ -1,0 +1,17 @@
+# Données — ne jamais committer le dataset
+data/
+*.csv
+
+# Environnement virtuel
+venv/
+.venv/
+
+# MLflow local
+mlruns/
+mlartifacts/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
