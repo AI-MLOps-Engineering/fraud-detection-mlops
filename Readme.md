@@ -76,13 +76,18 @@ fraud-detection-mlops/
 ├── .github/workflows/  # CI/CD GitHub Actions
 ├── Dockerfile
 ├── docker-compose.yml
-├── run.py
+├── run.py              # Contournement bug Windows
+├── generate_traffic.py # Envoi régilers de requêtes à l'API 
 └── requirements.txt
 ```
 
 ## 📈 MLflow Experiment Tracking
 
 ![MLflow UI](docs/mlflow-screenshot.png)
+
+## 📈 Grafana Tracking
+
+![MLflow UI](docs/grafana-screenshot.png)
 
 ## 🔗 Liens
 
