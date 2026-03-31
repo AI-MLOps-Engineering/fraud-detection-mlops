@@ -1,3 +1,5 @@
+![CI](https://github.com/AI-MLOps-Engineering/fraud-detection-mlops/actions/workflows/ci.yml/badge.svg)
+
 # 🔍 Fraud Detection MLOps Pipeline
 
 Pipeline MLOps end-to-end pour la détection de fraude en temps réel sur des transactions financières.
