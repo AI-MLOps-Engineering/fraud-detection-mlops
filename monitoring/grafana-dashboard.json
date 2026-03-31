@@ -1,0 +1,44 @@
+{
+    "title": "Fraud Detection Monitoring",
+    "panels": [
+      {
+        "title": "Prédictions / minute",
+        "type": "timeseries",
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+        "targets": [{
+          "expr": "rate(predictions_total[1m]) * 60",
+          "legendFormat": "{{result}}"
+        }]
+      },
+      {
+        "title": "Latence p99 (ms)",
+        "type": "timeseries",
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0},
+        "targets": [{
+          "expr": "histogram_quantile(0.99, rate(prediction_latency_seconds_bucket[1m])) * 1000",
+          "legendFormat": "p99"
+        }]
+      },
+      {
+        "title": "% Fraudes détectées",
+        "type": "gauge",
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8},
+        "targets": [{
+          "expr": "rate(predictions_total{result=\"fraud\"}[1m]) / rate(predictions_total[1m]) * 100",
+          "legendFormat": "% fraudes"
+        }]
+      },
+      {
+        "title": "Total prédictions",
+        "type": "stat",
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 8},
+        "targets": [{
+          "expr": "sum(predictions_total)",
+          "legendFormat": "Total"
+        }]
+      }
+    ],
+    "time": {"from": "now-5m", "to": "now"},
+    "refresh": "5s",
+    "schemaVersion": 36
+  }
