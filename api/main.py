@@ -6,11 +6,13 @@ import pandas as pd
 from prometheus_client import Counter, Histogram, generate_latest
 from fastapi.responses import PlainTextResponse
 import time
+import os
 
 app = FastAPI(title="Fraud Detection API", version="1.0")
 
 # Connexion MLflow
-mlflow.set_tracking_uri("http://127.0.0.1:5000")
+MLFLOW_URI = os.getenv("MLFLOW_TRACKING_URI", "http://127.0.0.1:5000")
+mlflow.set_tracking_uri(MLFLOW_URI)
 
 # Chargement du modèle
 try:
